@@ -1,0 +1,572 @@
+{
+	"info": {
+		"_postman_id": "c95789ec-02e5-4a5f-b676-58719a0789b6",
+		"name": "SEON - All API requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fraud API v2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"config\": {\n    \"ip\": {\n      \"include\": \"flags,history,id\",\n      \"timeout\": 2000,\n      \"version\": \"v1.0\"\n    },\n    \"email\": {\n      \"include\": \"flags,history,id\",\n      \"timeout\": 2000,\n      \"version\": \"v2.0\"\n    },\n    \"phone\": {\n      \"include\": \"flags,history,id\",\n      \"timeout\": 2000,\n      \"version\": \"v1.0\"\n    },\n    \"ip_api\": true,\n    \"email_api\": true,\n    \"phone_api\": true,\n    \"device_fingerprinting\": true,\n    \"ignore_velocity_rules\": false,\n    \"response_fields\": \"id,state,fraud_score,ip_details,email_details,phone_details,bin_details,version,applied_rules,device_details,calculation_time,seon_id\"\n  },\n\t    \"ip\": \"1.1.1.1\",\n        \"action_type\": \"\",\n        \"transaction_id\": \"\",\n        \"affiliate_id\": \"\",\n        \"affiliate_name\": \"\",\n        \"order_memo\": \"\",\n        \"email\": \"example@example.com\",\n        \"email_domain\": \"\",\n        \"password_hash\": \"\",\n        \"user_fullname\": \"\",\n        \"user_name\": \"\",\n        \"user_id\": \"\",\n        \"user_dob\": \"\",\n        \"user_category\": \"\",\n        \"user_account_status\": \"\",\n        \"user_created\": \"\",\n        \"user_country\": \"\",\n        \"user_city\": \"\",\n        \"user_region\": \"\",\n        \"user_zip\": \"\",\n        \"user_street\": \"\",\n        \"user_street2\": \"\",\n        \"device_id\": \"\",\n        \"session\": \"\",\n        \"payment_mode\": \"\",\n        \"card_fullname\": \"\",\n        \"card_bin\": \"\",\n        \"card_hash\": \"\",\n        \"card_last\": \"\",\n        \"card_expire\": \"\",\n        \"avs_result\": \"\",\n        \"cvv_result\": \"\",\n        \"receiver_fullname\": \"\",\n        \"receiver_bank_account\": \"\",\n        \"sca_method\": \"\",\n        \"user_bank_account\": \"\",\n        \"user_bank_name\": \"\",\n        \"user_balance\": \"\",\n        \"user_verification_level\": \"\",\n        \"status_3d\": \"\",\n        \"regulation\": \"\",\n        \"payment_provider\": \"\",\n        \"phone_number\": 36301234567,\n        \"transaction_type\": \"\",\n        \"transaction_amount\": \"\",\n        \"transaction_currency\": \"\",\n        \"brand_id\": \"\",\n        \"items\": [{\n        \t\"item_id\": \"\",\n        \t\"item_quantity\": \"\",\n        \t\"item_name\": \"\",\n        \t\"item_price\": \"\",\n        \t\"item_store\": \"\",\n        \t\"item_store_country\": \"\",\n        \t\"item_category\": \"\",\n        \t\"item_url\": \"\",\n        \t\"item_custom_fields\": {}\n         }, {\n          \"item_id\": \"\",\n        \t\"item_quantity\": \"\",\n        \t\"item_name\": \"\",\n        \t\"item_price\": \"\",\n        \t\"item_store\": \"\",\n        \t\"item_store_country\": \"\",\n        \t\"item_category\": \"\",\n        \t\"item_url\": \"\",\n        \t\"item_custom_fields\": {}\n\t}],\n        \"shipping_country\": \"\",\n        \"shipping_city\": \"\",\n        \"shipping_region\": \"\",\n        \"shipping_zip\": \"\",\n        \"shipping_street\": \"\",\n        \"shipping_street2\": \"\",\n        \"shipping_phone\": \"\",\n        \"shipping_fullname\": \"\",\n        \"shipping_method\": \"\",\n        \"billing_country\": \"\",\n        \"billing_city\": \"\",\n        \"billing_region\": \"\",\n        \"billing_zip\": \"\",\n        \"billing_street\": \"\",\n        \"billing_street2\": \"\",\n        \"billing_phone\": \"\",\n        \"discount_code\": \"\",\n        \"bonus_campaign_id\": \"\",\n        \"gift\": \"\",\n        \"gift_message\": \"\",\n        \"merchant_id\": \"\",\n        \"merchant_created_at\": \"\",\n        \"merchant_country\": \"\",\n        \"merchant_category\": \"\",\n        \"details_url\": \"\",\n        \"custom_fields\": { \n            \"is_intangible_item\": true,\n            \"is_pay_on_delivery\": true,\n            \"departure_airport\": \"BUD\",\n            \"days_to_board\": 1,\n            \"arrival_airport\": \"MXP\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/fraud-api/v2.0",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"fraud-api",
+						"v2.0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email API v2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/email-api/v2.0/example@example.com",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"email-api",
+						"v2.0",
+						"example@example.com"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "history",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "id",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "flags",
+							"disabled": true
+						},
+						{
+							"key": "flags_timeframe_days",
+							"value": "[number of days]",
+							"disabled": true
+						},
+						{
+							"key": "timeout",
+							"value": "[number of milliseconds]",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IP API v1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/ip-api/v1.0/1.1.1.1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"ip-api",
+						"v1.0",
+						"1.1.1.1"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "history",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "id",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "flags",
+							"disabled": true
+						},
+						{
+							"key": "flags_timeframe_days",
+							"value": "[number of days]",
+							"disabled": true
+						},
+						{
+							"key": "timeout",
+							"value": "[number of milliseconds]",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Phone API v1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/phone-api/v1.0/36301234567",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"phone-api",
+						"v1.0",
+						"36301234567"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "history",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "id",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "flags",
+							"disabled": true
+						},
+						{
+							"key": "flags_timeframe_days",
+							"value": "[number of days]",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "cnam_lookup",
+							"disabled": true
+						},
+						{
+							"key": "include",
+							"value": "hlr_details",
+							"disabled": true
+						},
+						{
+							"key": "exclude",
+							"value": "photo",
+							"disabled": true
+						},
+						{
+							"key": "exclude",
+							"value": "last_seen",
+							"disabled": true
+						},
+						{
+							"key": "timeout",
+							"value": "[number of milliseconds]",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Erase API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"user_ids\": [\"userid-001\",\"userid-002\"],\n        \"emails\": [\"example001@example.com\",\"example002@example.com\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/erase-api?dry_run=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"erase-api"
+					],
+					"query": [
+						{
+							"key": "dry_run",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Label API",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"label\": \"fraud\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/fraud-api/label/id1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"fraud-api",
+						"label",
+						"id1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Label API - multiple",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"transactions\": [{\n                \"transaction_id\": \"id1\",\n                \"label\": \"label1\"\n            },\n            {\n                \"transaction_id\": \"id2\",\n                \"label\": \"label2\"\n            }\n        ]\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/fraud-api/label/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"fraud-api",
+						"label",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Self-Exclusion API",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_ids\": [\"id1\",\"id2\"],\n    \"emails\": [\"example1@example.com\", \"example2@example.com\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/fraud-api/exclude",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"fraud-api",
+						"exclude"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Self-Exclusion API",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_ids\": [\"id1\",\"id2\"],\n    \"emails\": [\"example1@example.com\", \"example2@example.com\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/fraud-api/exclude",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"fraud-api",
+						"exclude"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lists API",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "[license_key]"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data_field\": \"ip\",\n    \"value\": \"1.1.1.1\",\n    \"state\": \"blacklist\",\n    \"comment\": \"This is a fake IP\",\n    \"expire_day\": 3\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.seon.io/SeonRestService/fraud-api/state-field/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"seon",
+						"io"
+					],
+					"path": [
+						"SeonRestService",
+						"fraud-api",
+						"state-field",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

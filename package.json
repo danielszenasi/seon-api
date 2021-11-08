@@ -1,0 +1,14 @@
+{
+  "name": "seon-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate:typescript": "npx @openapitools/openapi-generator-cli generate -i openapi.yaml -g typescript -o dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.4.14"
+  }
+}

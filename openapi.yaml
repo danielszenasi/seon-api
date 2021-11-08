@@ -1,0 +1,587 @@
+openapi: 3.0.3
+info:
+  title: SEON - All API requests
+  version: 1.0.0
+  description: OpenAPI specification for the interface between the Frontend and Backend components
+  contact:
+    name: Daniel Szenasi
+    email: danielszenasi@gmail.com
+
+servers:
+  - url: https://api.seon.io
+tags:
+  - name: default
+    description: Default
+
+paths:
+  /SeonRestService/fraud-api/v2.0:
+    post:
+      description: SEON’s Fraud API is at the core of our fraud fighting solution
+      operationId: getFraud
+      tags:
+        - default
+      summary: Fraud API v2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FraudApiRequest"
+      parameters:
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/email-api/v2.0/{email}:
+    get:
+      description: Email API v2.1 aggregates hundreds of open and reachable social data sources to provide an in-depth email address investigation tool.
+      operationId: getEmail
+      tags:
+        - default
+      summary: Email API v2
+      parameters:
+        - name: email
+          in: path
+          description: email to fetch
+          required: true
+          schema:
+            type: string
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/ip-api/v1.0/{ip}:
+    get:
+      description: Fraudsters bypass IP address bans with proxies and VPNs. This API determines how likely an IP address is to be faked using modern computing techniques, so you can block TOR, VPN and proxy users. This reduces ATO (account takeover), spyware, malware, criminal netblocks, botnets, spammers and exploit scanners.
+      operationId: getIp
+      tags:
+        - default
+      summary: IP API v1
+      parameters:
+        - name: ip
+          in: path
+          description: ip to fetch
+          required: true
+          example: 1.1.1.1
+          schema:
+            type: string
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/phone-api/v1.0/{phone}:
+    get:
+      description: Phone API combines numerous data sources to provide an in-depth phone number investigation tool. It aggregates open and reachable social and messenger data to flag fraudsters based on a phone number only.
+      operationId: getPhone
+      tags:
+        - default
+      summary: Phone API v1
+      parameters:
+        - name: phone
+          in: path
+          description: phone to fetch
+          required: true
+          schema:
+            type: string
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/erase-api:
+    post:
+      description: Under GDPR, data controllers and processors are obliged to delete all personal data upon request. With our Erase API you can erase all data related to one or multiple users by providing email addresses or user ids.
+      operationId: Erase
+      tags:
+        - default
+      summary: Erase API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_ids:
+                  - userid-001
+                  - userid-002
+                emails:
+                  - example001@example.com
+                  - example002@example.com
+      parameters:
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: dry_run
+          in: query
+          schema:
+            type: boolean
+          example: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/fraud-api/label/{id}:
+    put:
+      description: This API lets you label transactions as fraudulent or not via a PUT request. It is important feedback that helps refine our machine learning algorithm, which then reduces the number of false positives and negatives.
+      operationId: updateLabel
+      tags:
+        - default
+      summary: Label API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                label: fraud
+      parameters:
+        - name: id
+          in: path
+          description: label id
+          required: true
+          schema:
+            type: string
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/fraud-api/label:
+    put:
+      description: This API lets you label transactions as fraudulent or not via a PUT request. It is important feedback that helps refine our machine learning algorithm, which then reduces the number of false positives and negatives.
+      operationId: batchUpdateLabel
+      tags:
+        - default
+      summary: Label API - multiple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                transactions:
+                  - transaction_id: id1
+                    label: label1
+                  - transaction_id: id2
+                    label: label2
+      parameters:
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/fraud-api/exclude:
+    put:
+      description: A special API for gambling operators who need to enable self exclusion lists. This API uses email address, phone number, full name, date of birth, user country, user zip data fields. Users can be defined by email addresses or user ids in the requests. Use PUT request to exclude users, use DELETE request to reverse the exclusion.
+      operationId: exclude
+      tags:
+        - default
+      summary: Self-Exclusion API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_ids:
+                  - id1
+                  - id2
+                emails:
+                  - example1@example.com
+                  - example2@example.com
+      parameters:
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      description: A special API for gambling operators who need to enable self exclusion lists. This API uses email address, phone number, full name, date of birth, user country, user zip data fields. Users can be defined by email addresses or user ids in the requests. Use PUT request to exclude users, use DELETE request to reverse the exclusion.
+      operationId: delete
+      tags:
+        - default
+      summary: Self-Exclusion API
+      parameters:
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /SeonRestService/fraud-api/state-field:
+    put:
+      description: This API lets you blacklist, whitelist or reset any Fraud API request and response parameter, with a comment and expiration. This is achieved through a PUT request.
+      operationId: updateStateField
+      tags:
+        - default
+      summary: Lists API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                data_field: ip
+                value: 1.1.1.1
+                state: blacklist
+                comment: This is a fake IP
+                expire_day: 3
+      parameters:
+        - name: X-API-KEY
+          in: header
+          schema:
+            type: string
+          example: "[license_key]"
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+components:
+  schemas:
+    FraudApiRequest:
+      type: object
+      properties:
+        config:
+          $ref: "#/components/schemas/Config"
+        ip:
+          type: string
+          example: 1.1.1.1
+        action_type:
+          type: string
+        transaction_id:
+          type: string
+        affiliate_id:
+          type: string
+        affiliate_name:
+          type: string
+        order_memo:
+          type: string
+        email:
+          type: string
+          example: example@example.com
+        email_domain:
+          type: string
+        password_hash:
+          type: string
+        user_fullname:
+          type: string
+        user_name:
+          type: string
+        user_id:
+          type: string
+        user_dob:
+          type: string
+        user_category:
+          type: string
+        user_account_status:
+          type: string
+        user_created:
+          type: string
+        user_country:
+          type: string
+        user_city:
+          type: string
+        user_region:
+          type: string
+        user_zip:
+          type: string
+        user_street:
+          type: string
+        user_street2:
+          type: string
+        device_id:
+          type: string
+        session:
+          type: string
+        payment_mode:
+          type: string
+        card_fullname:
+          type: string
+        card_bin:
+          type: string
+        card_hash:
+          type: string
+        card_last:
+          type: string
+        card_expire:
+          type: string
+        avs_result:
+          type: string
+        cvv_result:
+          type: string
+        receiver_fullname:
+          type: string
+        receiver_bank_account:
+          type: string
+        sca_method:
+          type: string
+        user_bank_account:
+          type: string
+        user_bank_name:
+          type: string
+        user_balance:
+          type: string
+        user_verification_level:
+          type: string
+        status_3d:
+          type: string
+        regulation:
+          type: string
+        payment_provider:
+          type: string
+        phone_number:
+          type: string
+          example: "36301234567"
+        transaction_type:
+          type: string
+        transaction_amount:
+          type: string
+        transaction_currency:
+          type: string
+        brand_id:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Item"
+        shipping_country:
+          type: string
+        shipping_city:
+          type: string
+        shipping_region:
+          type: string
+        shipping_zip:
+          type: string
+        shipping_street:
+          type: string
+        shipping_street2:
+          type: string
+        shipping_phone:
+          type: string
+        shipping_fullname:
+          type: string
+        shipping_method:
+          type: string
+        billing_country:
+          type: string
+        billing_city:
+          type: string
+        billing_region:
+          type: string
+        billing_zip:
+          type: string
+        billing_street:
+          type: string
+        billing_street2:
+          type: string
+        billing_phone:
+          type: string
+        discount_code:
+          type: string
+        bonus_campaign_id:
+          type: string
+        gift:
+          type: string
+        gift_message:
+          type: string
+        merchant_id:
+          type: string
+        merchant_created_at:
+          type: string
+        merchant_country:
+          type: string
+        merchant_category:
+          type: string
+        details_url:
+          type: string
+        custom_fields:
+          type: object
+          properties:
+            is_intangible_item:
+              type: boolean
+            is_pay_on_delivery:
+              type: boolean
+            departure_airport:
+              type: string
+              example: BUD
+            days_to_board:
+              type: number
+            arrival_airport:
+              type: string
+              example: BUD
+
+    Config:
+      type: object
+      properties:
+        ip:
+          type: object
+          properties:
+            include:
+              type: string
+              enum:
+                - flags
+                - history
+                - id
+            timeout:
+              type: number
+              example: 2000
+            version:
+              type: string
+              example: v1.0
+        email:
+          type: object
+          properties:
+            include:
+              type: string
+              enum:
+                - flags
+                - history
+                - id
+            timeout:
+              type: number
+              example: 2000
+            version:
+              type: string
+              example: v2.0
+        phone:
+          type: object
+          properties:
+            include:
+              type: string
+              enum:
+                - flags
+                - history
+                - id
+            timeout:
+              type: number
+              example: 2000
+            version:
+              type: string
+              example: v1.0
+        ip_api:
+          type: boolean
+        email_api:
+          type: boolean
+        phone_api:
+          type: boolean
+        device_fingerprinting:
+          type: boolean
+        ignore_velocity_rules:
+          type: boolean
+        # response_fields: >-
+        #         id,state,fraud_score,ip_details,email_details,phone_details,bin_details,version,applied_rules,device_details,calculation_time,seon_id
+    Item:
+      type: object
+      properties:
+        item_id:
+          type: string
+        item_quantity:
+          type: string
+        item_name:
+          type: string
+        item_price:
+          type: string
+        item_store:
+          type: string
+        item_store_country:
+          type: string
+        item_category:
+          type: string
+        item_url:
+          type: string
+        item_custom_fields: {}

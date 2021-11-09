@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate:typescript": "npx @openapitools/openapi-generator-cli generate -i openapi.yaml -g typescript -o dist/"
+    "generate:typescript-fetch": "npx @openapitools/openapi-generator-cli generate -i openapi.yaml -g typescript-fetch -o out --additional-properties=npmName=seon-api"
   },
   "author": "",
   "license": "ISC",
